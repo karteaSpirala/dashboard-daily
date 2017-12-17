@@ -51,10 +51,6 @@ function select() {
     searchInput.style.display = 'inline-block';
     var teachers = document.getElementById('container');
     teachers.style.display = 'inline-block';
-    var classroom = document.getElementById('classroom');
-    classroom.style.display = 'inline-block';
-    var feedback = document.getElementById('feedback');
-    feedback.style.display = 'inline-block';
 
     var city = event.target[selectedIndex].dataset.city;
     var classyear = event.target[selectedIndex].dataset.classyear;
