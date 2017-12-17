@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Data Dashboard</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="icon" type="image/gif" href="assets/images/laboratoria-icon.png" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <img id="logo" src="assets/images/laboratoria-logo.png">
+    </header>
+    <!-- Opciones para seleccionar sede y generación -->
+    <section>
+        <select id="filter">
+            <option>Selecciona una opción</option>
+            <optgroup label="Arequipa">
+                <option value="2016-1" data-city="AQP" data-classyear="2016-2">Arequipa 2016-2</option>
+                <option value="2017-1" data-city="AQP" data-classyear="2017-1">Arequipa 2017-1</option>
+            </optgroup>
+            <optgroup label="Ciudad de México">
+                <option value="2017-1" data-city="CDMX" data-classyear="2017-1">Ciudad de México 2017-1</option>
+                <option value="2017-2" data-city="CDMX" data-classyear="2017-2">Cuidad de México 2017-2</option>
+            </optgroup>
+            <optgroup label="Lima">
+                <option value="2016-2" data-city="LIM" data-classyear="2016-2">Lima 2016-2</option>
+                <option value="2017-1" data-city="LIM" data-classyear="2017-1">Lima 2017-1</option>
+                <option value="2017-2" data-city="LIM" data-classyear="2017-2">Lima 2017-2</option>
+            </optgroup>
+            <optgroup label="Santiago">
+                <option value="2016-2" data-city="SCL" data-classyear="2016-2">Santiago 2016-2</option>
+                <option value="2017-1" data-city="SCL" data-classyear="2017-1">Santiago 2017-1</option>
+                <option value="2017-2" data-city="SCL" data-classyear="2017-2">Santiago 2017-2</option>
+            </optgroup>
+        </select>
+    </section>
+
+    <!-- Menú tabs -->
+    <section>
+        <ul id="tabs">
+            <li><button type="button" name="button" data-selectedtab="tab-aula" class="tab">Aula</button></li>
+            <li><button type="button" name="button" data-selectedtab="tab-feedback" class="tab">Feedback</button></li>
+            <li><button type="button" name="button" data-selectedtab="tab-alumnas" class="tab">Alumnas</button></li>
+            <li><button type="button" name="button" data-selectedtab="tab-profesores" class="tab">Profesores</button></li>
+        </ul>
+        <div>
+            <!-- Sección aula -->
+            <article id="classroom">
+                <div id="data-display">
+                    <p id="title-number">Estudiantes inscritas</p>
+                    <p id="number">90</p>
+                </div>
+                <img class="chart circle" src="assets/images/circle-graphic.png">
+                <img class="chart circle" src="assets/images/circle-graphic.png">
+                <img class="chart rectangular" src="assets/images/rectangular-graphic.png">
+                <img class="chart rectangular" src="assets/images/rectangular-graphic.png">
+                <img class="chart graph" src="assets/images/graph.png" height="300" width="500">
+                <img class="chart graph" src="assets/images/graph.png" height="300" width="500">
+            </article>
+            <!-- Sección feedback -->
+            <article id="feedback">
+                <img class="chart circle feedback" src="assets/images/circle-graphic.png">
+                <img class="chart circle feedback" src="assets/images/circle-graphic.png">
+                <img class="chart rectangular" src="assets/images/rectangular-graphic.png">
+                <img class="chart rectangular" src="assets/images/rectangular-graphic.png">
+            </article>
+            <!-- Sección Alumnas -->
+            <article id="students">
+                <form id="search-student">
+                    <input id="search-input" type="text" placeholder="Buscar alumna">
+                </form>
+                <div id="student-container">
+                    <div class="student-test">
+
+                    </div>
+                </div>
+            </article>
+            <!-- Sección profesores -->
+            <article id="teachers">
+                <section id="container">
+                    <div class="profile">
+                        <img src="https://dummyimage.com/200x200">
+                        <p>Nombre del profesor</p>
+                        <p>Puntuación promedio</p>
+                    </div>
+                    <div class="profile">
+                        <img src="https://dummyimage.com/200x200">
+                        <p>Nombre del profesor</p>
+                        <p>Puntuación promedio</p>
+                    </div>
+                    <div class="profile">
+                        <img src="https://dummyimage.com/200x200">
+                        <p>Nombre del profesor</p>
+                        <p>Puntuación promedio</p>
+                    </div>
+                    <div class="profile">
+                        <img src="https://dummyimage.com/200x200">
+                        <p>Nombre del profesor</p>
+                        <p>Puntuación promedio</p>
+                    </div>
+                    <div class="profile">
+                        <img src="https://dummyimage.com/200x200">
+                        <p>Nombre del profesor</p>
+                        <p>Puntuación promedio</p>
+                    </div>
+                    <div class="profile">
+                        <img src="https://dummyimage.com/200x200">
+                        <p>Nombre del profesor</p>
+                        <p>Puntuación promedio</p>
+                    </div>
+                    <div class="profile">
+                        <img src="https://dummyimage.com/200x200">
+                        <p>Nombre del profesor</p>
+                        <p>Puntuación promedio</p>
+                    </div>
+                    <div class="profile">
+                        <img src="https://dummyimage.com/200x200">
+                        <p>Nombre del profesor</p>
+                        <p>Puntuación promedio</p>
+                    </div>
+                    <div class="profile">
+                        <img src="https://dummyimage.com/200x200">
+                        <p>Nombre del profesor</p>
+                        <p>Puntuación promedio</p>
+                    </div>
+                </section>
+            </article>
+        </div>
+    </section>
+
+    <!-- Base de datos -->
+    <script src="./js/data.js"></script>
+    <!-- Aquí va tus archivos JS -->
+    <script src="./js/app.js"></script>
+
+
+</body>
+
+</html>

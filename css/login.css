@@ -1,0 +1,60 @@
+form {
+    font-family: 'Roboto', sans-serif;
+    margin-top: 5px;
+}
+
+form>p {
+    font-size: 15px;
+    text-align: center;
+}
+
+#login {
+    display: block;
+    border: solid 3px #D3D3D3;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 170px;
+    width: 370px;
+}
+
+#logo {
+    height: 100px;
+    margin-left: 75px;
+    width: 200px;
+}
+
+input {
+    font-size: 15px;
+    height: 30px;
+    text-align: left;
+    outline: none;
+    margin: 5px;
+    width: 245px;
+}
+
+.box {
+    display: block;
+    height: 35px;
+    padding: 5px 55px 5px 55px;
+}
+
+.button-yellow {
+    background-color: #FFBE5A;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    height: 30px;
+    margin: 5px 0px 0px 5px;
+    outline: none;
+    text-align: center;
+    width: 100px;
+}
+
+.button-yellow:hover {
+    background-color: rgb(240, 156, 30);
+}
+
+#forget {
+    margin: 100px 50px 50px 55px;
+    font-family: 'Roboto', sans-serif;
+}

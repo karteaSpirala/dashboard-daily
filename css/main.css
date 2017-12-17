@@ -1,0 +1,117 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+
+header {
+    background: #2B2B2B;
+    height: 705x;
+}
+
+#logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 230px;
+}
+
+select {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    margin: 15px 5px 5px 50px;
+    outline: none;
+}
+
+#tabs li {
+    display: inline-block;
+}
+
+#tabs li button {
+    background: #FFBF43;
+    border-radius: 0px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    height: 30px;
+    outline: none;
+    width: 100px;
+}
+
+#tabs li button:hover {
+    background: black;
+    color: #FFBF43;
+}
+
+#container p {
+    text-align: center;
+}
+
+#container .profile {
+    clear: both;
+    display: inline-block;
+    margin: 50px 70px 0px 50px;
+    padding: 55px 20px 0px 70px;
+}
+
+.container-students {
+    display: inline-block;
+    margin: 20px 30px 20px 80px;
+}
+
+#search-input {
+    font-size: 15px;
+    height: 30px;
+    margin: 20px 100px 50px 50px;
+    outline: none;
+    width: 300px;
+    display: none;
+}
+
+#container {
+    display: none;
+}
+
+
+/* temporal */
+
+#data-display {
+    height: 250px;
+    width: 300px;
+    float: left;
+    text-align: center;
+    border: 1px solid black;
+    margin: 30px 30px 30px 70px;
+}
+
+#title-number {
+    font-size: 20px;
+}
+
+#number {
+    font-size: 80px;
+    margin: 40px;
+}
+
+.circle {
+    margin: 70px;
+    float: left;
+}
+
+.rectangular {
+    margin: 40px 40px 40px 80px;
+}
+
+.graph {
+    margin: 40px;
+}
+
+.feedback {
+    margin: 100px 150px 100px 150px;
+}
+
+#classroom {
+    display: none;
+}
+
+#feedback {
+    display: none;
+}

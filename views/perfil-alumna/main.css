@@ -1,0 +1,55 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+
+header {
+    background: #2B2B2B;
+    height: 705x;
+}
+
+#logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 230px;
+}
+
+#content {
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+
+#profile {
+    float: left;
+    height: 500px;
+    margin-left: 40px;
+    padding: 10px 50px 70px 50px;
+    width: 240px;
+}
+
+#profilepic {
+    margin: 50px 60px 10px 60px;
+}
+
+#profile p {
+    margin: 10px 0px 0px 80px;
+    text-align: center;
+}
+
+#profile a {
+    text-decoration: none;
+    color: black;
+    height: 50px;
+    border-radius: 5px;
+}
+
+#pie1,
+#pie2,
+#line1,
+#line2 {
+    display: inline-block;
+    margin: 30px 0px 50px 100px;
+    padding: 0px 20px 0px 20px;
+    text-align: center;
+}

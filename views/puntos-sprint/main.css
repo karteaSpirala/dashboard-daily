@@ -1,0 +1,70 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+
+header {
+    background: #2B2B2B;
+    height: 705x;
+    margin-bottom: 20px;
+}
+
+#logo {
+    display: block;
+    margin: 0 auto;
+    width: 230px;
+}
+
+#profile {
+    background: #ECEBEB;
+    border: 1px solid #dddddd;
+    height: 160px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    width: 340px;
+}
+
+#profile p {
+    text-align: center;
+}
+
+#profile a {
+    text-decoration: none;
+}
+
+select {
+    clear: both;
+    display: block;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    margin: 0 auto;
+    outline: none;
+}
+
+#tech-table {
+    float: left;
+    margin: 40px 60px 60px 180px;
+}
+
+#hse-table {
+    float: left;
+    margin: 40px 60px 60px 100px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    background: #FFBF43;
+}
+
+td,
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
