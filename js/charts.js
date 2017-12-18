@@ -84,7 +84,6 @@ function getAndDraw(e) {
             'title': 'Estudiantes activas',
             'width': 500,
             'height': 400,
-            'pieHole': 0.4,
         };
         var activeChart = new google.visualization.PieChart(document.getElementById('chart-active'));
         activeChart.draw(activeData, options);
@@ -100,8 +99,8 @@ function getAndDraw(e) {
             ['No cumplen meta', countActive],
         ]);
         var options = {
-            'title': 'Net Promoter Score',
-            'width': 550,
+            'title': 'Estudiantes que cumplen la meta',
+            'width': 500,
             'height': 400,
         };
         var targetChart = new google.visualization.PieChart(document.getElementById('chart-target'));
@@ -142,7 +141,7 @@ function getAndDraw(e) {
             hAxis: { title: 'Sprint', titleTextStyle: { color: '#333' } },
             vAxis: { minValue: 0 },
             height: 400,
-            width: 550,
+            width: 500,
 
         };
 
