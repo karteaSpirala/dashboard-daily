@@ -7,8 +7,8 @@ function getAndDraw(e) {
     var city = event.target[selectedIndex].dataset.city;
     var classyear = event.target[selectedIndex].dataset.classyear;
     var totalStudentsGeneration = data[city][classyear]['students'].length;
-    var numberCity = document.getElementById('number-city')
-    var numberGeneration = document.getElementById('number-generation')
+    //var numberCity = document.getElementById('number-city')
+    //var numberGeneration = document.getElementById('number-generation')
     var totalStudentsCity = 0
     if (data[city]['2017-2'] !== undefined) {
         totalStudentsCity = totalStudentsCity + data[city]['2017-2']['students'].length
@@ -19,8 +19,8 @@ function getAndDraw(e) {
     if (data[city]['2016-2'] !== undefined) {
         totalStudentsCity = totalStudentsCity + data[city]['2016-2']['students'].length
     }
-    numberCity.innerText = totalStudentsCity
-    numberGeneration.innerText = totalStudentsGeneration
+    //numberCity.innerText = totalStudentsCity
+    //numberGeneration.innerText = totalStudentsGeneration
     countActive = 0
     for (var j = 0; j < data[city][classyear]['students'].length; j++) {
         if (data[city][classyear]['students'][j]['active'] === true) {
@@ -30,8 +30,6 @@ function getAndDraw(e) {
     countInactive = totalStudentsGeneration - countActive;
     var numberCity = document.getElementById('number-city')
     var numberGeneration = document.getElementById('number-generation')
-    numberGeneration.innerText = totalStudentsGeneration
-        //
     var ratings = data[city][classyear]['ratings'];
     var arrayScoreJedi = [];
     for (var i = 0; i < ratings.length; i++) {
@@ -62,7 +60,6 @@ function getAndDraw(e) {
     detractors = eval(arrayDetractors.join('+')) / arrayDetractors.length
 
 
-    //
     // gráficas
     google.charts.setOnLoadCallback(drawActiveChart);
     google.charts.setOnLoadCallback(drawTargetChart);
@@ -84,6 +81,7 @@ function getAndDraw(e) {
             'title': 'Estudiantes activas',
             'width': 500,
             'height': 400,
+            'colors': ['#d6d4d1', '#e08f0e']
         };
         var activeChart = new google.visualization.PieChart(document.getElementById('chart-active'));
         activeChart.draw(activeData, options);
@@ -102,25 +100,27 @@ function getAndDraw(e) {
             'title': 'Estudiantes que cumplen la meta',
             'width': 500,
             'height': 400,
+            'colors': ['#e08f0e', '#d6d4d1']
         };
         var targetChart = new google.visualization.PieChart(document.getElementById('chart-target'));
         targetChart.draw(targetData, options);
     }
 
+    // Grafica para el NPS
     function drawNPSChart() {
         var NPSData = new google.visualization.DataTable();
         NPSData.addColumn('string', 'Estudiantes');
         NPSData.addColumn('number', 'Numero');
         NPSData.addRows([
             ['Promotoras', promoters],
-            ['Pasivas', passive],
             ['Detractoras', detractors],
+            ['Pasivas', passive],
         ]);
         var options = {
             'title': 'Net Promote Score',
             'width': 500,
             'height': 400,
-            'pieHole': 0.4,
+            colors: ['#e08f0e', '#d6d4d1', '#e2b368']
         };
         var activeChart = new google.visualization.PieChart(document.getElementById('chart-nps'));
         activeChart.draw(NPSData, options);
@@ -142,6 +142,7 @@ function getAndDraw(e) {
             vAxis: { minValue: 0 },
             height: 400,
             width: 500,
+            colors: ['#e08f0e']
 
         };
 
@@ -149,7 +150,7 @@ function getAndDraw(e) {
         chart.draw(data, options);
     }
 
-    // gráfica de rating de jedi y teachers
+    // gráfica de rating de jedi 
     function drawJediChart() {
         var data = google.visualization.arrayToDataTable([
             ['Sprint', 'Puntaje'],
@@ -164,11 +165,13 @@ function getAndDraw(e) {
             vAxis: { minValue: 0 },
             height: 400,
             width: 500,
+            colors: ['#e08f0e']
         };
         var chart = new google.visualization.ColumnChart(document.getElementById('chart-jedi'));
         chart.draw(data, options);
     }
 
+    // gráfica de rating de teacher
     function drawTeacherChart() {
         var data = google.visualization.arrayToDataTable([
             ['Sprint', 'Puntaje'],
@@ -183,6 +186,7 @@ function getAndDraw(e) {
             vAxis: { minValue: 0 },
             height: 400,
             width: 500,
+            colors: ['#e08f0e']
         };
         var chart = new google.visualization.ColumnChart(document.getElementById('chart-teacher'));
         chart.draw(data, options);

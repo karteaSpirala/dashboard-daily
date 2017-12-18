@@ -101,16 +101,12 @@ select {
     margin: 40px;
 }
 
-#chart-active {
-    display: inline-block;
-    width: auto;
-    border: 1px solid black;
-}
-
 #chart-nps,
 #chart-recommend,
 #chart-teacher,
-#chart-jedi {
+#chart-jedi,
+#chart-active,
+#chart-target {
     display: inline-block;
     width: auto;
     border: 1px solid black;
