@@ -106,3 +106,12 @@ select {
     width: auto;
     border: 1px solid black;
 }
+
+#chart-nps,
+#chart-recommend,
+#chart-teacher,
+#chart-jedi {
+    display: inline-block;
+    width: auto;
+    border: 1px solid black;
+}

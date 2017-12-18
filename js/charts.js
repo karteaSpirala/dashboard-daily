@@ -32,21 +32,44 @@ function getAndDraw(e) {
     var numberGeneration = document.getElementById('number-generation')
     numberGeneration.innerText = totalStudentsGeneration
         //
-    var arrayRatings = data[city][classyear]['ratings'];
+    var ratings = data[city][classyear]['ratings'];
     var arrayScoreJedi = [];
-    for (var i = 0; i < arrayRatings.length; i++) {
-        arrayScoreJedi[i] = arrayRatings[i].jedi;
+    for (var i = 0; i < ratings.length; i++) {
+        arrayScoreJedi[i] = ratings[i].jedi;
     }
     var arrayScoreTeachers = [];
-    for (var i = 0; i < arrayRatings.length; i++) {
-        arrayScoreTeachers[i] = arrayRatings[i].teacher;
+    for (var i = 0; i < ratings.length; i++) {
+        arrayScoreTeachers[i] = ratings[i].teacher;
     }
+
+    var arrayRecommend = [];
+    for (var i = 0; i < ratings.length; i++) {
+        arrayRecommend[i] = 100 - ratings[i]['student']['no-cumple']
+    }
+
+    var arrayPromoters = [];
+    var arrayPassive = [];
+    var arrayDetractors = [];
+
+    for (var i = 0; i < ratings.length; i++) {
+        arrayPromoters[i] = ratings[i]['nps']['promoters'];
+        arrayPassive[i] = ratings[i]['nps']['passive'];
+        arrayDetractors[i] = ratings[i]['nps']['detractors'];
+    }
+
+    promoters = eval(arrayPromoters.join('+')) / arrayPromoters.length
+    passive = eval(arrayPassive.join('+')) / arrayPassive.length
+    detractors = eval(arrayDetractors.join('+')) / arrayDetractors.length
+
 
     //
     // gráficas
     google.charts.setOnLoadCallback(drawActiveChart);
     google.charts.setOnLoadCallback(drawTargetChart);
     google.charts.setOnLoadCallback(drawJediChart);
+    google.charts.setOnLoadCallback(drawRecommendChart);
+    google.charts.setOnLoadCallback(drawNPSChart);
+    google.charts.setOnLoadCallback(drawTeacherChart);
 
     // gráfica de estudiantes activas - inactivas
     function drawActiveChart() {
@@ -61,7 +84,6 @@ function getAndDraw(e) {
             'title': 'Estudiantes activas',
             'width': 500,
             'height': 400,
-            'colors': ['#c0c0c0', '#FFBF43'],
             'pieHole': 0.4,
         };
         var activeChart = new google.visualization.PieChart(document.getElementById('chart-active'));
@@ -78,34 +100,93 @@ function getAndDraw(e) {
             ['No cumplen meta', countActive],
         ]);
         var options = {
-            'title': 'Estudiantes que cumplen meta',
-            'width': 500,
+            'title': 'Net Promoter Score',
+            'width': 550,
             'height': 400,
-            'colors': ['#c0c0c0', '#FFBF43'],
         };
         var targetChart = new google.visualization.PieChart(document.getElementById('chart-target'));
         targetChart.draw(targetData, options);
     }
 
-    function drawJediChart() {
+    function drawNPSChart() {
+        var NPSData = new google.visualization.DataTable();
+        NPSData.addColumn('string', 'Estudiantes');
+        NPSData.addColumn('number', 'Numero');
+        NPSData.addRows([
+            ['Promotoras', promoters],
+            ['Pasivas', passive],
+            ['Detractoras', detractors],
+        ]);
+        var options = {
+            'title': 'Net Promote Score',
+            'width': 500,
+            'height': 400,
+            'pieHole': 0.4,
+        };
+        var activeChart = new google.visualization.PieChart(document.getElementById('chart-nps'));
+        activeChart.draw(NPSData, options);
+    }
+
+    // Gráfica de estudiantes satisfechas
+    function drawRecommendChart() {
         var data = google.visualization.arrayToDataTable([
-            ['Sprint', 'Jedis', 'Teachers'],
-            ['1', arrayScoreJedi[0], arrayScoreTeachers[0]],
-            ['2', arrayScoreJedi[1], arrayScoreTeachers[1]],
-            ['3', arrayScoreJedi[2], arrayScoreTeachers[2]],
-            ['4', arrayScoreJedi[3], arrayScoreTeachers[3]]
+            ['Sprint', 'Porcentaje'],
+            ['1', arrayRecommend[0]],
+            ['2', arrayRecommend[1]],
+            ['3', arrayRecommend[2]],
+            ['4', arrayRecommend[3]]
         ]);
 
         var options = {
-            title: 'Puntaje Jedis y Teachers',
+            title: 'Porcentaje de estudiantes satisfechas',
+            hAxis: { title: 'Sprint', titleTextStyle: { color: '#333' } },
+            vAxis: { minValue: 0 },
+            height: 400,
+            width: 550,
+
+        };
+
+        var chart = new google.visualization.ColumnChart(document.getElementById('chart-recommend'));
+        chart.draw(data, options);
+    }
+
+    // gráfica de rating de jedi y teachers
+    function drawJediChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Sprint', 'Puntaje'],
+            ['1', arrayScoreJedi[0]],
+            ['2', arrayScoreJedi[1]],
+            ['3', arrayScoreJedi[2]],
+            ['4', arrayScoreJedi[3]],
+        ]);
+        var options = {
+            title: 'Puntaje Jedis',
             hAxis: { title: 'Sprint', titleTextStyle: { color: '#333' } },
             vAxis: { minValue: 0 },
             height: 400,
             width: 500,
-
         };
-
         var chart = new google.visualization.ColumnChart(document.getElementById('chart-jedi'));
         chart.draw(data, options);
     }
+
+    function drawTeacherChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Sprint', 'Puntaje'],
+            ['1', arrayScoreTeachers[0]],
+            ['2', arrayScoreTeachers[1]],
+            ['3', arrayScoreTeachers[2]],
+            ['4', arrayScoreTeachers[3]],
+        ]);
+        var options = {
+            title: 'Puntaje Teachers',
+            hAxis: { title: 'Sprint', titleTextStyle: { color: '#333' } },
+            vAxis: { minValue: 0 },
+            height: 400,
+            width: 500,
+        };
+        var chart = new google.visualization.ColumnChart(document.getElementById('chart-teacher'));
+        chart.draw(data, options);
+    }
+
 }
