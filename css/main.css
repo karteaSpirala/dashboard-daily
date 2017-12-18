@@ -22,23 +22,29 @@ select {
     outline: none;
 }
 
-#tabs li {
+#tabs {
     display: inline-block;
 }
 
+#tabs li {
+    display: inline;
+}
+
 #tabs li button {
-    background: #FFBF43;
-    border-radius: 0px;
+    background: #2B2B2B;
+    color: #FFBF43;
+    margin: 0;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     height: 30px;
     outline: none;
     width: 100px;
+    display: inline-block;
 }
 
 #tabs li button:hover {
-    background: black;
-    color: #FFBF43;
+    color: black;
+    background: #FFBF43;
 }
 
 #container p {
@@ -73,45 +79,30 @@ select {
 
 /* temporal */
 
-#data-display {
-    height: 250px;
-    width: 300px;
-    float: left;
-    text-align: center;
+#display-numbercity,
+#display-numbergeneration {
     border: 1px solid black;
-    margin: 30px 30px 30px 70px;
+    display: inline-block;
+    height: 200px;
+    margin: 60px 45px 30px 45px;
+    padding-top: 20px;
+    text-align: center;
+    width: 250px;
+    vertical-align: top;
 }
 
-#title-number {
-    font-size: 20px;
+.title-number {
+    font-size: 18px;
 }
 
-#number {
+#number-city,
+#number-generation {
     font-size: 80px;
     margin: 40px;
 }
 
-.circle {
-    margin: 70px;
-    float: left;
-}
-
-.rectangular {
-    margin: 40px 40px 40px 80px;
-}
-
-.graph {
-    margin: 40px;
-}
-
-.feedback {
-    margin: 100px 150px 100px 150px;
-}
-
-#classroom {
-    display: none;
-}
-
-#feedback {
-    display: none;
+#chart-active {
+    display: inline-block;
+    width: auto;
+    border: 1px solid black;
 }

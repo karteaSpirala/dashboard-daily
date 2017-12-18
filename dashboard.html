@@ -4,10 +4,11 @@
 <head>
     <meta charset="utf-8">
     <title>Data Dashboard</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="icon" type="image/gif" href="assets/images/laboratoria-icon.png" />
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
 </head>
 
 <body>
@@ -15,6 +16,14 @@
         <img id="logo" src="assets/images/laboratoria-logo.png">
     </header>
     <!-- Opciones para seleccionar sede y generación -->
+    <section>
+        <ul id="tabs">
+            <li><button type="button" name="button" data-selectedtab="tab-aula" class="tab">Aula</button></li>
+            <li><button type="button" name="button" data-selectedtab="tab-feedback" class="tab">Feedback</button></li>
+            <li><button type="button" name="button" data-selectedtab="tab-alumnas" class="tab">Alumnas</button></li>
+            <li><button type="button" name="button" data-selectedtab="tab-profesores" class="tab">Profesores</button></li>
+        </ul>
+    </section>
     <section>
         <select id="filter">
             <option>Selecciona una opción</option>
@@ -41,32 +50,25 @@
 
     <!-- Menú tabs -->
     <section>
-        <ul id="tabs">
-            <li><button type="button" name="button" data-selectedtab="tab-aula" class="tab">Aula</button></li>
-            <li><button type="button" name="button" data-selectedtab="tab-feedback" class="tab">Feedback</button></li>
-            <li><button type="button" name="button" data-selectedtab="tab-alumnas" class="tab">Alumnas</button></li>
-            <li><button type="button" name="button" data-selectedtab="tab-profesores" class="tab">Profesores</button></li>
-        </ul>
         <div>
             <!-- Sección aula -->
             <article id="classroom">
-                <div id="data-display">
-                    <p id="title-number">Estudiantes inscritas</p>
-                    <p id="number">90</p>
+                <div id="display-numbercity">
+                    <p class="title-number">Estudiantes por sede</p>
+                    <p id="number-city"></p>
                 </div>
-                <img class="chart circle" src="assets/images/circle-graphic.png">
-                <img class="chart circle" src="assets/images/circle-graphic.png">
-                <img class="chart rectangular" src="assets/images/rectangular-graphic.png">
-                <img class="chart rectangular" src="assets/images/rectangular-graphic.png">
-                <img class="chart graph" src="assets/images/graph.png" height="300" width="500">
-                <img class="chart graph" src="assets/images/graph.png" height="300" width="500">
+                <div id="display-numbergeneration">
+                    <p class="title-number">Estudiantes por generación</p>
+                    <p id="number-generation"></p>
+                </div>
+                <div id="chart-active"></div>
+                <div id="chart-target"></div>
             </article>
             <!-- Sección feedback -->
             <article id="feedback">
-                <img class="chart circle feedback" src="assets/images/circle-graphic.png">
-                <img class="chart circle feedback" src="assets/images/circle-graphic.png">
-                <img class="chart rectangular" src="assets/images/rectangular-graphic.png">
-                <img class="chart rectangular" src="assets/images/rectangular-graphic.png">
+                <div id="chart-nps"></div>
+                <div id="chart-satisfaction"></div>
+                <div id="chart-jedi"></div>
             </article>
             <!-- Sección Alumnas -->
             <article id="students">
@@ -136,6 +138,8 @@
     <script src="./js/data.js"></script>
     <!-- Aquí va tus archivos JS -->
     <script src="./js/app.js"></script>
+    <!-- Charts -->
+    <script src="./js/charts.js"></script>
 
 
 </body>

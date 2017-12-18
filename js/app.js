@@ -6,6 +6,7 @@ var getIndex = document.getElementById('filter');
 
 //Función para mostrar el contenido de la tab seleccionada y ocultar las demás
 function showHide(e) {
+    e.preventDefault();
     var selectedTab = e.target.dataset.selectedtab;
     if (selectedTab === 'tab-aula') {
         classroomTab.style.display = 'block';
@@ -45,19 +46,16 @@ pageLoad();
 //Variable para asignarle evento al select
 getIndex.addEventListener('change', select);
 
-function select() {
+function select(e) {
+    e.preventDefault();
     var selectedIndex = (event.target.selectedIndex);
     var searchInput = document.getElementById('search-input');
     searchInput.style.display = 'inline-block';
     var teachers = document.getElementById('container');
     teachers.style.display = 'inline-block';
-
     var city = event.target[selectedIndex].dataset.city;
     var classyear = event.target[selectedIndex].dataset.classyear;
     getData(city, classyear);
-    getLength(city, classyear);
-    getActive(city, classyear);
-    getMeetTarget(city, classyear)
 }
 
 //Función para acceder a los datos
@@ -102,6 +100,7 @@ var searchStudent = document.forms['search-student'].querySelector('input');
 searchStudent.addEventListener('keyup', searching)
 
 function searching(e) {
+    e.preventDefault()
     var searched = e.target.value.toLowerCase();
     studentArray = Array.from(document.getElementsByClassName('container-students'));
     studentArray.forEach(function(eachStudent) {
@@ -112,24 +111,4 @@ function searching(e) {
             eachStudent.style.display = 'none';
         }
     })
-}
-
-function getLength(city, classyear) {
-    console.log(data[city][classyear]['students'].length);
-}
-
-function getActive(city, classyear) {
-    countActive = 0
-    for (var i = 0; i < data[city][classyear]['students'].length; i++) {
-        if (data[city][classyear]['students'][i]['active'] === true) {
-            countActive = countActive + 1;
-        }
-    }
-    console.log(countActive);
-}
-
-function getMeetTarget(city, classyear) {
-    for (var i = 0; i < data[city][classyear]['students'].length; i++) {
-        data[city][classyear]['students'][i]['sprints']
-    }
 }
